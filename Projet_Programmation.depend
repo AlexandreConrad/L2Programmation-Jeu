@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1506783685 source:/home/conrad/Bureau/Programmation Avancée/Projet_Programmation/main.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL2/SDL.h>
+	<stdbool.h>
+	"constantes.h"
+	"variables.h"
+
+1506781130 /home/conrad/Bureau/Programmation Avancée/Projet_Programmation/constantes.h
+
+1506780544 /home/conrad/Bureau/Programmation Avancée/Projet_Programmation/variables.h
+	<stdbool.h>
+
