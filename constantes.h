@@ -29,4 +29,8 @@
     #define Objectif 9
     #define ClefTrue 10
 
+    /*Taille d'un personnage sur le sprites*/
+    #define TILE_W 48
+    #define TILE_H 64
+
 #endif // _CONSTANTES_

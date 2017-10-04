@@ -12,3 +12,29 @@
 1506780544 /home/conrad/Bureau/Programmation Avancée/Projet_Programmation/variables.h
 	<stdbool.h>
 
+1507097203 source:/home/theobarrague/Bureau/alexandre-game/main.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL2/SDL.h>
+	<stdbool.h>
+	"constantes.h"
+	"variables.h"
+
+1507097281 /home/theobarrague/Bureau/alexandre-game/constantes.h
+
+1507096921 /home/theobarrague/Bureau/alexandre-game/variables.h
+	<stdbool.h>
+
+1507097204 source:/home/conrad/Bureau/alexandre-game/main.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL2/SDL.h>
+	<stdbool.h>
+	"constantes.h"
+	"variables.h"
+
+1507097282 /home/conrad/Bureau/alexandre-game/constantes.h
+
+1507096922 /home/conrad/Bureau/alexandre-game/variables.h
+	<stdbool.h>
+
