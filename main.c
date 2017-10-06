@@ -12,6 +12,9 @@ SDL_Window* WindowCreate ( char* title, int width, int height ) {
 
 int main() {
 
+    /*Initialisation des Variables*/
+    bool Open=true;
+
     /*Création des évévenements et des surfaces de l'écran*/
     SDL_Event Event;
     SDL_Window* Fenetre = WindowCreate( "Exelo", LargeurWindow, HauteurWindow );
