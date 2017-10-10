@@ -14,10 +14,13 @@
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-std=c99" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add library="SDL2-2.0" />
+					<Add directory="/usr/lib/x86_64-linux-gnu/" />
 				</Linker>
 			</Target>
 		</Build>
@@ -26,6 +29,9 @@
 		</Compiler>
 		<Unit filename="constantes.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="map.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

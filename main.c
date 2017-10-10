@@ -4,24 +4,26 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 #include "constantes.h"
-#include "variables.h"
 
 SDL_Window* WindowCreate ( char* title, int width, int height ) {
+    /* Création de la fenêtre SDL*/
     return SDL_CreateWindow( title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN );
 }
 
 int main() {
 
-    /*Initialisation des Variables*/
-    bool Open=true;
+    /* Déclarations de toutes les variables du projet*/
+    bool Open = true;
 
     /*Création des évévenements et des surfaces de l'écran*/
     SDL_Event Event;
-    SDL_Window* Fenetre = WindowCreate( "Exelo", LargeurWindow, HauteurWindow );
-    SDL_Surface* SurfaceWindows = SDL_GetWindowSurface( Fenetre );
+    SDL_Window* Fenetre = WindowCreate( "Exelo", WINDOW_W, WINDOW_H );
+    SDL_Surface* surfaceWindow = SDL_GetWindowSurface( Fenetre );
     SDL_Surface* link = SDL_LoadBMP( "Sprites/4LinkGreen1.bmp" );
-    SDL_Rect Rectangle = { 0, 0, TILE_W, TILE_H};
-    SDL_Rect Position = {0, 0, 0, 0};
+    SDL_Rect Rectangle = { 0, 2 * TILE_W, CHARACTER_W, CHARACTER_H};
+    SDL_Rect Position = { TILE_W * 1 + 8, TILE_H * 1 };
+
+    SDL_Surface* Map = CreationNiveau();
 
     /* Boucle qui permet actualise la fenêtre et applique les instructions*/
     while ( Open ) {
@@ -34,37 +36,36 @@ int main() {
 
         /* Permet de gérer les deplacements avec les flèches directionnelles*/
         if ( Event.type == SDL_KEYDOWN ) {
+            SDL_Keycode keyCode = Event.key.keysym.sym;
 
-            switch( Event.key.keysym.sym ) {
-            case SDLK_LEFT :
-                Position.x -= 5;
-                Rectangle.y = TILE_H * 3;
-                break;
+            if ( keyCode == SDLK_LEFT && Position.x > TILE_W * 2 ) {
+                Position.x -= TILE_W;
+                Rectangle.y = CHARACTER_H * 3;
+            }
+            if ( keyCode == SDLK_RIGHT && Position.x < WINDOW_W - 2 * TILE_W )  {
+                Position.x += TILE_W;
+                Rectangle.y = CHARACTER_H * 1;
+            }
 
-            case SDLK_RIGHT :
-                Position.x += 5;
-                Rectangle.y = TILE_H * 1;
-                break;
+            if ( keyCode == SDLK_DOWN && Position.y < WINDOW_H - 2 * TILE_H ) {
+                Position.y += TILE_H;
+                Rectangle.y = CHARACTER_H * 2;
+            }
 
-            case SDLK_DOWN :
-                Position.y += 5;
-                Rectangle.y = TILE_H * 2;
-                break;
-
-            case SDLK_UP :
-                Position.y -= 5;
-                Rectangle.y = TILE_H * 0;
-                break;
+            if ( keyCode == SDLK_UP && Position.y > TILE_W ) {
+                Position.y -= TILE_H;
+                Rectangle.y = CHARACTER_H * 0;
             }
         }
         /*Procédure pour rafraichir la page du jeu lors de déplacement*/
-        SDL_FillRect( SurfaceWindows, NULL, 0xffffffff );
-        SDL_BlitSurface( link, &Rectangle, SurfaceWindows, &Position );
+        SDL_BlitSurface( Map, NULL, surfaceWindow, NULL );
+        SDL_BlitSurface( link, &Rectangle, surfaceWindow, &Position );
         SDL_UpdateWindowSurface( Fenetre );
     }
 
     /* Procédure pour fermer la fenêtre SDL*/
     SDL_DestroyWindow( Fenetre );
     SDL_Quit();
+
     return 0;
 }
