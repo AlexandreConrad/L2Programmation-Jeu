@@ -6,9 +6,10 @@ int main()
 {
     //Variables
     SDL_Surface *ecran = NULL;
-    SDL_Surface *image = NULL;
+    SDL_Surface *fenetre = NULL;
     SDL_Rect pos;
     SDL_Event evenement;
+    bool open;
 
    
     //TEST D'ERREUR
@@ -19,17 +20,34 @@ int main()
         fprintf(fp, "Erreur d'initialisation de la SDL: %s\n",SDL_GetError() ); // On ecrit la derniere erreur dans un fichier texte
         exit(EXIT_FAILURE); // On quitte le programme
     }
-    //CREATION FENETRE
-    SDL_SetVideoMode(420, 272, 32, SDL_HWSURFACE);  //Défini la surface de la fenetre ainsi que le nombre de couleurs utilisable
-                                                    //Ainsi  que l'emplacememt dans laquel les données seront chargé
-    SDL_WM_SetCaption("Nom Jeu", NULL); // Attribut un nom à la fenêtre
 
+    //CREATION FENETRE
+    
+    fenetre = SDL_CreateWindow ("Sokoban", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 600, SDL_WINDOW_SHOW);
+    ecran= SDL_GetWindowSurface(fenetre)
+        
+    //EVENEMENT POUR METTRE LA FENETRE EN PAUSE
+       
+        open = true
+        while(open)
+        
+        {
+            SDL_PollEvent(&evenement);
+            
+            if (evenement.window.evenement == SDL_WINDOWEVENT_CLOSE )
+            {
+                open = false;
+            }
+        }
+        
+    
     //COULEUR FENETRE
-    Uint32 VertLink = SDL_MapRGB(ecran->format, 13, 236, 24);
+    Uint32 VertLink = SDL_MapRGB(ecran->format, 600, 600, 32);
     SDL_FillRect (ecran, NULL, VertLink);
+    SDL_UpdateWindowSurface(fenetre); //Mise a jour de la fenetre
 
     //AFFICHAGE DE L'IMAGE
-    image= SDL_CreateRGBSurface(SDL_HWSURFACE, 420, 272, 32, 0, 0, 0, 0);//Crée une surface
+    image= SDL_CreateRGBSurface(SDL_HWSURFACE, 600, 600, 32, 0, 0, 0, 0);//Crée une surface
     
     image = SDL_LoadBMP("ImageDeFond.bmp"); //Telecharge l'image dans une variable
 
@@ -37,13 +55,15 @@ int main()
     position.y = (272 / 2) - (180 / 2);//Coordonnee à changer
 
     SDL_BlitSurface(image, NULL, ecran, &pos); //Colle la surface sur l'écran
+    SDL_FreeSurface(image); //Libere la mémoire
+
 
     //AFFICHER ICONE SUR LA FENETRE
     SDL_WM_SetIcon(SDL_LoadBMP("Icone.bmp"), NULL); //Icone de la fenêtre
     
     
     //MISE A JOUR DE L'ECRAN
-    SDL_Flip(ecran); // Mise à jour de l'écran
+     SDL_UpdateWindowSurface(ecran); //fMise a jour de l'ecran
   
     //SELECTION DANS LES MENU
 
@@ -120,5 +140,5 @@ int main()
         }
 
     //LIBERER LA MEMEOIRE ET QUITTER LE PROGRAMME
-    SDL_FreeSurface(image);
+    SDL_DestroyWindow(fenetre);
 }
