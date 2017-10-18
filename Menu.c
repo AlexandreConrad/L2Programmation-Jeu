@@ -9,10 +9,8 @@ int main()
     SDL_Surface *image = NULL;
     SDL_Rect pos;
     SDL_Event evenement;
-    int continuer = 1;
 
-    SDL_Init(SDL_INIT_VIDEO);   //Charge le systeme video
-
+   
     //TEST D'ERREUR
     if (SDL_Init(SDL_INIT_VIDEO)== -1)  //Erreur dans le chargement du systeme
     {
