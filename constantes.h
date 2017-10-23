@@ -8,18 +8,18 @@
 */
 
 /*Taille d'une case sur un sprites*/
-    #define TILE_W 64
-    #define TILE_H 64
+    #define BLOC_L 64
+    #define BLOC_H 64
 
-    #define NB_BLOCKS_X 20      /*Nombres de bloc en largeur*/
-    #define NB_BLOCKS_Y 14             /*Nombres de bloc en Hauteur*/
+    #define NB_BLOCS_X 20      /*Nombres de bloc en largeur*/
+    #define NB_BLOCS_Y 9             /*Nombres de bloc en Hauteur*/
 
-    #define WINDOW_W TILE_W * NB_BLOCKS_X         /*Largeur de l'écran*/
-    #define WINDOW_H TILE_H * NB_BLOCKS_Y         /*Hauteur de l'écran*/
+    #define FENETRE_L BLOC_L * NB_BLOCS_X         /*Largeur de l'écran*/
+    #define FENETRE_H BLOC_H * NB_BLOCS_Y         /*Hauteur de l'écran*/
 
     /*Taille d'un personnage sur le sprites*/
-    #define CHARACTER_W 48
-    #define CHARACTER_H 64
+    #define PERSONNAGE_L 48
+    #define PERSONNAGE_H 64
 
 
 

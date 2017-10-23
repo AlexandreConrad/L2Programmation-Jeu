@@ -79,3 +79,58 @@
 	<stdbool.h>
 	"constantes.h"
 
+1508319382 source:/home/alexandre/L2Programmation-Jeu/main.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL2/SDL.h>
+	<stdbool.h>
+	"constantes.h"
+	"fenetre.h"
+	"map.h"
+	"personnage.h"
+
+1508311798 /home/alexandre/L2Programmation-Jeu/constantes.h
+
+1508319387 source:/home/alexandre/L2Programmation-Jeu/map.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL2/SDL.h>
+	<stdbool.h>
+	"constantes.h"
+	"map.h"
+
+1508312177 source:/home/alexandre/L2Programmation-Jeu/deplacement.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL2/SDL.h>
+	<stdbool.h>
+	"constantes.h"
+
+1508319872 source:/home/alexandre/L2Programmation-Jeu/fenetre.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL2/SDL.h>
+	<stdbool.h>
+	"constantes.h"
+	"personnage.h"
+
+1508319371 /home/alexandre/L2Programmation-Jeu/fenetre.h
+	<SDL2/SDL.h>
+	"personnage.h"
+
+1508320248 source:/home/alexandre/L2Programmation-Jeu/personnage.c
+	<stdio.h>
+	<stdlib.h>
+	<SDL2/SDL.h>
+	<stdbool.h>
+	"constantes.h"
+	"personnage.h"
+
+1508319371 /home/alexandre/L2Programmation-Jeu/map.h
+	<SDL2/SDL.h>
+
+1508319377 /home/alexandre/L2Programmation-Jeu/personnage.h
+	<SDL2/SDL.h>
+	<stdbool.h>
+	"map.h"
+
