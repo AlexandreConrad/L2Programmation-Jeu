@@ -9,12 +9,30 @@
 #include "personnage.h"
 
 int main() {
+    int choix = AfficherMenu();
+    if (choix==0){
+        return EXIT_SUCCESS;
+    }else{
+
+
     SDL_Window* fenetre = CreerFenetre( "Exelo", FENETRE_L, FENETRE_H );
+
     SDL_Surface* surfaceFenetre = SDL_GetWindowSurface( fenetre );
-    Map* carte = CreationNiveau();
+    Map* carte;
 
+    if (choix == 1 ){
+    /* On charge le niveau 1*/
+        carte = CreationNiveau(choix);
+    }
+    else if (choix == 2 ){
+    /* On charge le niveau 1*/
+        carte = CreationNiveau(choix);
+    }
+    else if (choix == 3 ){
+    /* On charge le niveau 1*/
+        carte = CreationNiveau(choix);
+    }
     Personnage *link = CreerPersonnage("Sprites/4LinkGreen1.bmp");
-
 
     /* Boucle qui permet actualise la fenêtre et applique les instructions*/
     SDL_Event event;
@@ -42,6 +60,7 @@ int main() {
     /* Procédure pour fermer la fenêtre SDL*/
     SDL_DestroyWindow( fenetre );
     SDL_Quit();
+    }
 
-    return 0;
+    return EXIT_SUCCESS;
 }

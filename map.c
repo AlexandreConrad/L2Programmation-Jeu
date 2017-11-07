@@ -49,7 +49,7 @@ int** LectureFichier(const char* fichierNom, SDL_Surface* tileset,SDL_Surface *c
     return tableau;
 }
 
-Map* CreationNiveau() {
+Map* CreationNiveau(int choix) {
 
     Map* carteNiveau = (Map*) malloc(sizeof(Map));
     carteNiveau->surface = SDL_CreateRGBSurface( 0, FENETRE_L, FENETRE_H, 32, 0xff000000, 0x00ff0000, 0x0000ff00, 0x000000ff );
@@ -58,9 +58,17 @@ Map* CreationNiveau() {
     /* Chargement des textures de la carte */
     SDL_Surface* tileset = SDL_LoadBMP( "Sprites/Map.bmp" );
 
-    carteNiveau->tabBlocs = LectureFichier("Niveau/_9_20/Niveau3.txt", tileset, carteNiveau->surface);
-
-    /* Création du Niveau 2 */
-    /* Création du Niveau 3 */
+   if (choix == 1){
+    /* Création du niveau 1 */
+        carteNiveau->tabBlocs = LectureFichier("Niveau/_9_20/Niveau1.txt", tileset, carteNiveau->surface);
+    }
+   if (choix == 2){
+    /* Création du niveau 2 */
+        carteNiveau->tabBlocs = LectureFichier("Niveau/_9_20/Niveau2.txt", tileset, carteNiveau->surface);
+    }
+   if (choix == 3){
+    /* Création du niveau 3 */
+        carteNiveau->tabBlocs = LectureFichier("Niveau/_9_20/Niveau3.txt", tileset, carteNiveau->surface);
+    }
     return carteNiveau;
 }

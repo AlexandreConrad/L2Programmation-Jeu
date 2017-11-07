@@ -11,7 +11,6 @@
 				<Option object_output="obj/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-Wall" />
@@ -20,6 +19,7 @@
 				<Linker>
 					<Add option="-s" />
 					<Add library="SDL2" />
+					<Add library="SDL_ttf" />
 					<Add directory="/usr/lib/x86_64-linux-gnu/" />
 				</Linker>
 			</Target>
@@ -32,6 +32,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="fenetre.h" />
+		<Unit filename="joueur.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="joueur.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -39,6 +43,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="map.h" />
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
 		<Unit filename="personnage.c">
 			<Option compilerVar="CC" />
 		</Unit>

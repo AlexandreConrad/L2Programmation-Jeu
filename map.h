@@ -9,6 +9,6 @@ typedef struct {
 
 SDL_Surface* RecupererBloc( SDL_Surface* tileset, int id );
 int** LectureFichier(const char* fichierNom, SDL_Surface* tileset,SDL_Surface *carte);
-Map* CreationNiveau();
+Map* CreationNiveau(int choix);
 
 #endif // _MAP_

@@ -13,9 +13,6 @@ bool Deplacer (Personnage* link, Map *carte, SDL_Event *event){
         if ( event->type == SDL_KEYDOWN ) {
             SDL_Keycode keyCode = event->key.keysym.sym;
 
-            printf("%i %i\n", link->pos.x, link->pos.y);
-            printf("%i\n", carte->tabBlocs[link->pos.y][link->pos.x - 1]);
-
             if ( keyCode == SDLK_LEFT && carte->tabBlocs[link->pos.y][link->pos.x - 1] != 13){
                 link->pos.x -= 1;
                 link->rect.y = PERSONNAGE_H * 3;
